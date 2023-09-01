@@ -1,44 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="pragma" content="no-cache" />
-
-    <script>
-      var isMobile = {
-        Android: function () {
-          return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function () {
-          return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function () {
-          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function () {
-          return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function () {
-          return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function () {
-          return (
-            isMobile.Android() ||
-            isMobile.BlackBerry() ||
-            isMobile.iOS() ||
-            isMobile.Opera() ||
-            isMobile.Windows()
-          );
-        },
-      };
-
-      if (isMobile.Android()) {
-        document.location.href = "/ar.glb";
-      } else if (isMobile.iOS()) {
-        document.location.href = "/ar.usdz";
-      }
-    </script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
-  <body></body>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      <a-marker preset="hiro">
+        <a-entity
+          gltf-model="url(./ar.glb)"
+          scale="0.1 0.1 0.1"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
