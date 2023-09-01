@@ -6,6 +6,7 @@
   <meta http-equiv="pragma" content="no-cache" />
 
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  
   <style>
     /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -57,42 +58,20 @@ table {
 }
 
 
-    .model-viewer {
+    #model-container {
       width: 100%;
       height: 100vh;
       margin: 0;
       padding: 0;
     }
   </style>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", (event) => {
-      var isMobile = {
-        Android: function () {
-          return navigator.userAgent.match(/Android/i);
-        },
-        iOS: function () {
-          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-      };
-
-      if (isMobile.Android()) {
-        document.getElementById('model-container').style.display = 'block';
-      } else if (isMobile.iOS()) {
-        var anchor = document.createElement('a');
-        anchor.href = '/ar.usdz';
-        anchor.download = 'ar.usdz';
-        document.body.appendChild(anchor);
-        anchor.click();
-        document.body.removeChild(anchor);
-      }
-    });
-  </script>
 </head>
 <body>
-  <div id="model-container" style="display:none;">
-    <model-viewer src="/ar.gltf" ar ar-modes="webxr scene-viewer quick-look" alt="A 3D model" auto-rotate></model-viewer>
-
-  </div>
+  <model-viewer src="./ar.glb"
+  ios-src="./ar.usdz"
+  alt="Datanest"
+  ar
+  auto-rotate
+  camera-controls></model-viewer>
 </body>
 </html>
