@@ -23,8 +23,8 @@
 
       if (isMobile.Android()) {
         // Redirect for Google's Scene Viewer or ARCore on Android
-        window.location.href = "intent://arvr.google.com/scene-viewer/1.0?file=https://datanest-earth.github.io/ar.glb#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=https://datanest-earth.github.io;end;";
-      } else if (isMobile.iOS()) {
+        window.location.href = "https://arvr.google.com/scene-viewer/1.0?file=https://datanest-earth.github.io/ar.glb";
+   } else if (isMobile.iOS()) {
         // Redirect to USDZ file for Quick Look on iOS
         window.location.href = "https://datanest-earth.github.io/ar.usdz";
       }
